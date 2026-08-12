@@ -1,0 +1,5 @@
+# 模板仓库自身的忽略规则
+.DS_Store
+Thumbs.db
+*.swp
+*.swo

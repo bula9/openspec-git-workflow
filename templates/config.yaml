@@ -1,0 +1,25 @@
+# 将以下内容追加到 openspec/config.yaml 的 context 字段中
+# 如果已有 context，用 | 合并多行
+
+schema: spec-driven
+
+context: |
+  技术栈: React 18 + TypeScript + Vite 5 + Tauri v2 (Rust) + Tailwind CSS 3
+  状态管理: Zustand
+  数据库: SQLite (sqlx)
+  AI: DeepSeek API (deepseek-chat)
+
+  ## 版本管理
+  采用 SemVer (MAJOR.MINOR.PATCH) 规范。
+  版本号文件（必须同步更新）:
+  - package.json → "version"
+  - src-tauri/Cargo.toml → [package] version
+  - src-tauri/tauri.conf.json → "version"
+
+  ## Git 工作流
+  - 每个 change 对应一个 Git 分支: <type>/<change-name>
+  - 分支类型: feature/ (新功能) | fix/ (修复) | breaking/ (不兼容变更) | change/ (默认)
+  - 使用 /opsx:propose 自动创建分支
+  - 使用 /opsx:release 归档 + 版本 bump + 合并到 main
+  - 使用 /opsx:abort 放弃 change + 删除分支
+  - Commit 格式: "<type>: <description>" (conventional commits)
